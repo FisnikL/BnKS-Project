@@ -19,17 +19,19 @@ import java.util.concurrent.TimeUnit;
 public class AuthService {
 
     private final static String USER_AUTHENTICATION_OBJECT = "USER_AUTHENTICATION_OBJECT";
+    private final static String USER_NOTFOUND_ENCODED_PASSWORD = "userNotFoundPassword";
     private final AppUserRepository appUserRepository;
     private final PasswordEncoder passwordEncoder;
-    private final String userNotFoundEncodedPassword;
+
 
     public AuthService(AppUserRepository appUserRepository, PasswordEncoder passwordEncoder) {
         this.appUserRepository = appUserRepository;
         this.passwordEncoder = passwordEncoder;
-        this.userNotFoundEncodedPassword = this.passwordEncoder.encode("userNotFoundPassword");
+//        this.userNotFoundEncodedPassword = this.passwordEncoder.encode("userNotFoundPassword");
     }
 
     public AuthenticationFlow login(String username, String password, HttpSession httpSession){
+
         AppUser appUser = this.appUserRepository.findByUsername(username);
 
         if(appUser != null){
@@ -52,7 +54,7 @@ public class AuthService {
             }
         }
         else{
-            this.passwordEncoder.matches(password, this.userNotFoundEncodedPassword);
+            this.passwordEncoder.matches(password, this.USER_NOTFOUND_ENCODED_PASSWORD);
         }
 
         return AuthenticationFlow.NOT_AUTHENTICATED;

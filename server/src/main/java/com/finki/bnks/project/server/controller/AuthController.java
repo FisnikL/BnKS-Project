@@ -1,7 +1,6 @@
 package com.finki.bnks.project.server.controller;
 
 import com.finki.bnks.project.server.domain.AuthenticationFlow;
-import com.finki.bnks.project.server.domain.model.AppUser;
 import com.finki.bnks.project.server.security.AppUserAuthentication;
 import com.finki.bnks.project.server.service.AuthService;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +21,11 @@ public class AuthController {
 
     public AuthController(AuthService authService) {
         this.authService = authService;
+    }
+
+    @GetMapping("/welcome")
+    public ResponseEntity<String> welcome(){
+        return ResponseEntity.ok("Welcome");
     }
 
     @GetMapping("/authenticate")
