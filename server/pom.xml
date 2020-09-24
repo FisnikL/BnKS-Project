@@ -66,23 +66,22 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- AeroGear OTP Java-->
+        <!-- https://mvnrepository.com/artifact/org.jboss.aerogear/aerogear-otp-java -->
         <dependency>
             <groupId>org.jboss.aerogear</groupId>
             <artifactId>aerogear-otp-java</artifactId>
             <version>1.0.0</version>
         </dependency>
 
+
+
         <!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
-        <!--
-            The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms.
-            This jar contains JCE provider and lightweight API for the Bouncy Castle Cryptography APIs for JDK 1.5 and up.
-        -->
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk15on</artifactId>
             <version>1.66</version>
         </dependency>
+
 
         <!-- Validate passwords against NIST SP-800-63B requirements.-->
         <!-- https://mvnrepository.com/artifact/com.codahale/passpol -->

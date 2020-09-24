@@ -22,7 +22,6 @@ public class SignupController {
             @RequestParam("username") @NotEmpty String username,
             @RequestParam("password") @NotEmpty String password,
             @RequestParam("totp") boolean totp) {
-
         return ResponseEntity.ok(signupService.signup(username, password, totp));
     }
 

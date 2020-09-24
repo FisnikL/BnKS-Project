@@ -5,8 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "app_user")
 public class AppUser {
-    private static final long serialVersionUID = 2031297271;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,10 +25,6 @@ public class AppUser {
         this.secret = secret;
         this.enabled = enabled;
         this.additionalSecurity = additionalSecurity;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
 
     public Long getId() {

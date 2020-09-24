@@ -25,8 +25,8 @@ public class CustomTotp {
         int code = Integer.parseInt(codeString);
         long currentInterval = System.currentTimeMillis() / 1000 / 30;
 
-        int exptectedResponse = generate(currentInterval);
-        if(exptectedResponse == code){
+        int expectedResponse = generate(currentInterval);
+        if(expectedResponse == code){
             valid = true;
         }
 

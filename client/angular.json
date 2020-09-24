@@ -67,6 +67,9 @@
           "options": {
             "browserTarget": "twofa:build",
             "proxyConfig": "proxy.conf.json"
+//            "ssl": true
+//            "sslKey": "ssl/gr4.bnks.finki.ukim.mk.key",
+//            "sslCert": "ssl/gr4.bnks.finki.ukim.mk.crt"
           },
           "configurations": {
             "production": {

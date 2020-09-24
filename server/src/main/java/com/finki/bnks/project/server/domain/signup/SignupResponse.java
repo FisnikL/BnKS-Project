@@ -1,6 +1,7 @@
 package com.finki.bnks.project.server.domain.signup;
 
 public class SignupResponse {
+
     private final SignupStatus status;
     private final String username;
     private final String secret;

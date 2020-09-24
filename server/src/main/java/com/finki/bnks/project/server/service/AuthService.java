@@ -62,6 +62,7 @@ public class AuthService {
 
     public AuthenticationFlow totp(String code, HttpSession httpSession) {
         AppUserAuthentication userAuthentication = (AppUserAuthentication) httpSession.getAttribute(USER_AUTHENTICATION_OBJECT);
+
         if(userAuthentication == null){
             return AuthenticationFlow.NOT_AUTHENTICATED;
         }
@@ -102,8 +103,7 @@ public class AuthService {
 
             // check 25 hours into the past and future.
             long noOf30SecondsIntervals = TimeUnit.HOURS.toSeconds(25) / 30;
-            Result result = totp.verify(List.of(code1, code2, code3),
-                    noOf30SecondsIntervals, noOf30SecondsIntervals);
+            Result result = totp.verify(List.of(code1, code2, code3), noOf30SecondsIntervals, noOf30SecondsIntervals);
             if (result.isValid()) {
                 if (result.getShift() > 2 || result.getShift() < -2) {
                     httpSession.setAttribute("totp-shift", result.getShift());

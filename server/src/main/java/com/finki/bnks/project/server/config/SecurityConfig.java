@@ -37,25 +37,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf(customizer -> customizer.disable())
-                // SSL
-//                .requiresChannel()
-//                .anyRequest()
-//                .requiresSecure()
-//                .and()
-                // Enable accessing H2-CONSOLE
-                .headers()
-                .frameOptions()
-                .disable()
-                .and()
-                // AUTHORIZATION
                 .authorizeRequests(
                 customizer -> {
                     customizer
                             .antMatchers(
                                     "/authenticate", "/signin", "/verify-totp",
                                     "/verify-totp-additional-security", "/signup", "/signup-confirm-secret",
-                                    "/welcome",
-                                    "/h2-console/**", "/favicon.ico")
+                                    "/welcome"
+                                    ,"/h2-console/**"
+                            )
                             .permitAll()
                             .anyRequest()
                             .authenticated();
